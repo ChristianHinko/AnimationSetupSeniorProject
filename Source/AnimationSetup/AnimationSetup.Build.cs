@@ -10,12 +10,6 @@ public class AnimationSetup : ModuleRules
 		PrivatePCHHeaderFile = "Private/AnimationSetupPrivatePCH.h";
 
 		PublicDependencyModuleNames.AddRange(new string[] { "Core" });
-		PrivateDependencyModuleNames.AddRange(
-			new string[]
-			{
-				"CoreUObject",
-				"Engine"
-			}
-		);
+		PrivateDependencyModuleNames.AddRange(new string[] { "CoreUObject", "Engine" });
 	}
 }
