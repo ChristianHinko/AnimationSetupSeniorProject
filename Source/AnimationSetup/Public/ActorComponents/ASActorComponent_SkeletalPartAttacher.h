@@ -39,7 +39,7 @@ public:
 	 * 
 	 * Recomended callsite: in your constructor.
 	 */
-	virtual void UseSkeletalMeshComponent(USkinnedMeshComponent* InSkeletalMeshComponent);
+	virtual void UseSkeletalMeshComponent(USkeletalMeshComponent* InSkeletalMeshComponent);
 
 	/**
 	 * Spawn the skeletal part Actors and attach them to the Skeletal Mesh Component.
@@ -68,7 +68,7 @@ protected:
 
 	/** The Skeletal Mesh Component that we are using as an invisible skeleton with animation (using the SkinlessSkeletalMesh) */
 	UPROPERTY(Transient)
-		TWeakObjectPtr<USkinnedMeshComponent> SkeletalMeshComponent;
+		TWeakObjectPtr<USkeletalMeshComponent> SkeletalMeshComponent;
 
 	/** Definitions of skeletal part Actors and how they are attached */
 	UPROPERTY(EditDefaultsOnly, Category = "SkeletalParts")

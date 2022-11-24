@@ -45,7 +45,7 @@ void UASActorComponent_SkeletalPartAttacher::PostEditChangeProperty(FPropertyCha
 #endif // WITH_EDITOR
 
 
-void UASActorComponent_SkeletalPartAttacher::UseSkeletalMeshComponent(USkinnedMeshComponent* InSkeletalMeshComponent)
+void UASActorComponent_SkeletalPartAttacher::UseSkeletalMeshComponent(USkeletalMeshComponent* InSkeletalMeshComponent)
 {
 	if (!IsValid(InSkeletalMeshComponent))
 	{
@@ -56,6 +56,7 @@ void UASActorComponent_SkeletalPartAttacher::UseSkeletalMeshComponent(USkinnedMe
 	SkeletalMeshComponent = InSkeletalMeshComponent;
 
 	// Always animate so that our attached part Actors can use our pose
+	// TODO: I want to find a way to avoid this but it seems that the only way to use complex logic for this would be to override functions from the SkinnedMeshComponent or maybe we could just keep setting USkinnedMeshComponent::VisibilityBasedAnimTickOption externally to achieve what we want?
 	SkeletalMeshComponent->VisibilityBasedAnimTickOption = EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones;
 }
 
