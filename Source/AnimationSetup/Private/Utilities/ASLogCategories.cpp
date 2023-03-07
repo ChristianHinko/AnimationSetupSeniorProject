@@ -8,5 +8,5 @@
 DEFINE_LOG_CATEGORY(LogAnimationSetupModule)
 
 DEFINE_LOG_CATEGORY(LogASSkinlessSkeletalMesh)
-DEFINE_LOG_CATEGORY(LogASSkeletalPartAttacherComponent)
-DEFINE_LOG_CATEGORY(LogASSkeletalPartDefinition)
+DEFINE_LOG_CATEGORY(LogASAttachmentAttacherComponent)
+DEFINE_LOG_CATEGORY(LogASAttachmentDefinition)

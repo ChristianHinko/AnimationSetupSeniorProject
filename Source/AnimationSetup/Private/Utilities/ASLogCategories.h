@@ -9,5 +9,5 @@
 DECLARE_LOG_CATEGORY_EXTERN(LogAnimationSetupModule, Log, All)
 
 DECLARE_LOG_CATEGORY_EXTERN(LogASSkinlessSkeletalMesh, Log, All)
-DECLARE_LOG_CATEGORY_EXTERN(LogASSkeletalPartAttacherComponent, Log, All)
-DECLARE_LOG_CATEGORY_EXTERN(LogASSkeletalPartDefinition, Log, All)
+DECLARE_LOG_CATEGORY_EXTERN(LogASAttachmentAttacherComponent, Log, All)
+DECLARE_LOG_CATEGORY_EXTERN(LogASAttachmentDefinition, Log, All)

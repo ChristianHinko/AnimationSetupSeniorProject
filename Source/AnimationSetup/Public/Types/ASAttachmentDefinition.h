@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 
-#include "ASSkeletalPartDefinition.generated.h"
+#include "ASAttachmentDefinition.generated.h"
 
 
 
@@ -51,17 +51,17 @@ struct ANIMATIONSETUP_API FASBlueprintAttachmentTransformRules
 };
 
 /**
- * Skeletal part definition
+ * Attachment definition
  * 
- * Defines a skeletal part Actor and how it is attached
+ * Defines an attachment - the Actor to spawn how it attaches
  */
 USTRUCT()
-struct ANIMATIONSETUP_API FASSkeletalPartDefinition
+struct ANIMATIONSETUP_API FASAttachmentDefinition
 {
 	GENERATED_BODY()
 
-	FASSkeletalPartDefinition()
-		: PartActorClass(nullptr)
+	FASAttachmentDefinition()
+		: ActorClass(nullptr)
 		, AttachmentTransformRules(FAttachmentTransformRules::SnapToTargetNotIncludingScale)
 		, SocketName(NAME_None)
 	{
@@ -69,7 +69,7 @@ struct ANIMATIONSETUP_API FASSkeletalPartDefinition
 
 	/** Actor class to use */
 	UPROPERTY(EditDefaultsOnly)
-		TSubclassOf<AActor> PartActorClass;
+		TSubclassOf<AActor> ActorClass;
 
 	/** Method of attachment to the owner component */
 	UPROPERTY(EditDefaultsOnly)
@@ -81,7 +81,7 @@ struct ANIMATIONSETUP_API FASSkeletalPartDefinition
 
 
 	/**
-	 * Spawn and attach the skeletal part Actor based on the part definition
+	 * Spawn and attach the attachment based on the definition
 	 */
-	AActor* SpawnAndAttachPartActor(AActor* InOwner, USceneComponent* InComponentToAttachTo) const;
+	AActor* SpawnAndAttach(AActor* InOwner, USceneComponent* InAttachee) const;
 };

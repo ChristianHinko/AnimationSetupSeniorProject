@@ -7,7 +7,7 @@
 
 
 
-USkeletalMesh* UASBlueprintFunctionLibrary_SkeletalMeshHelpers::CreateSkinlessSkeletalMeshFromSkeleton(USkeleton* InSkeleton)
+USkeletalMesh* UASBlueprintFunctionLibrary_SkeletalMeshHelpers::CreateSkinlessSkeletalMeshFromSkeleton(USkeleton* InSkeleton, const bool bInPrimitiveInRendererScene)
 {
 	if (!IsValid(InSkeleton))
 	{
@@ -20,7 +20,7 @@ USkeletalMesh* UASBlueprintFunctionLibrary_SkeletalMeshHelpers::CreateSkinlessSk
 	const EObjectFlags ObjectObjectFlags = EObjectFlags::RF_Transient | EObjectFlags::RF_Public; // use public because intend to use this outside of the transient package - also because we don't references to get nulled by FArchiveReplaceOrClearExternalReferences::operator<<()
 
 	USkeletalMesh* SkinlessSkeletalMesh = NewObject<USkeletalMesh>(Outer, ObjectName, ObjectObjectFlags);
-	InitializeSkinlessSkeletalMeshFromSkeleton(SkinlessSkeletalMesh, InSkeleton);
+	InitializeSkinlessSkeletalMeshFromSkeleton(SkinlessSkeletalMesh, InSkeleton, bInPrimitiveInRendererScene);
 
 	if (!GIsEditor)
 	{
@@ -31,7 +31,7 @@ USkeletalMesh* UASBlueprintFunctionLibrary_SkeletalMeshHelpers::CreateSkinlessSk
 	return SkinlessSkeletalMesh;
 }
 
-void UASBlueprintFunctionLibrary_SkeletalMeshHelpers::InitializeSkinlessSkeletalMeshFromSkeleton(USkeletalMesh* InOutSkeletalMesh, USkeleton* InSkeleton)
+void UASBlueprintFunctionLibrary_SkeletalMeshHelpers::InitializeSkinlessSkeletalMeshFromSkeleton(USkeletalMesh* InOutSkeletalMesh, USkeleton* InSkeleton, const bool bInPrimitiveInRendererScene)
 {
 	if (!IsValid(InOutSkeletalMesh))
 	{
@@ -94,8 +94,11 @@ void UASBlueprintFunctionLibrary_SkeletalMeshHelpers::InitializeSkinlessSkeletal
 			SkeletalMeshLODRenderData->RequiredBones.Add(i);
 		}
 
-		// Give us a vertex in order to be able to pass FSkeletalMeshRenderData::GetFirstValidLODIdx()
-		SkeletalMeshLODRenderData->StaticVertexBuffers.PositionVertexBuffer.Init(TArray<FVector3f>({ FVector3f(0.f, 0.f, 0.f) }));
+		if (bInPrimitiveInRendererScene)
+		{
+			// Give us a vertex in order to be able to pass FSkeletalMeshRenderData::GetFirstValidLODIdx()
+			SkeletalMeshLODRenderData->StaticVertexBuffers.PositionVertexBuffer.Init(TArray<FVector3f>({ FVector3f(0.f, 0.f, 0.f) }));
+		}
 
 
 		InOutSkeletalMesh->GetResourceForRendering()->LODRenderData.Add(SkeletalMeshLODRenderData);
