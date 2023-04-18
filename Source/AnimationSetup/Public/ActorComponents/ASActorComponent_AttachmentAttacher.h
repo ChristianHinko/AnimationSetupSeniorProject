@@ -33,7 +33,7 @@ public:
 	/**
 	 * Specify a component to be the attachee of attached attachments.
 	 */
-	UPROPERTY(EditDefaultsOnly, Category = "AttachmentAttacher")
+	UPROPERTY(EditDefaultsOnly, Category="AttachmentAttacher")
 		FComponentReference AttacheeReference;
 
 	/**
@@ -47,6 +47,10 @@ public:
 	/** Destroy all spawned attachments. */
 	UFUNCTION(BlueprintCallable)
 		virtual void DestroyAttachments();
+
+	/** Get all spawned attachments */
+	UFUNCTION(BlueprintPure)
+		UPARAM(Ref, Const) const TArray<TObjectPtr<AActor>>& GetAttachments() const { return Attachments; }
 
 protected:
 	//  BEGIN UObject interface
@@ -68,6 +72,6 @@ protected:
 		TWeakObjectPtr<USceneComponent> Attachee;
 
 	/** Definitions of attachments. */
-	UPROPERTY(EditDefaultsOnly, Category = "AttachmentAttacher")
+	UPROPERTY(EditDefaultsOnly, Category="AttachmentAttacher")
 		TArray<FASAttachmentDefinition> AttachmentDefinitions;
 };

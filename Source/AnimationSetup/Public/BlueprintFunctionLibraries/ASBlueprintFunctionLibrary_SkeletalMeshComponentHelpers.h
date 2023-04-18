@@ -25,6 +25,6 @@ public:
 	 * Set up default transform for the given Skeletal Mesh Component.
 	 * This is safe and intended to use in object constructors.
 	 */
-	UFUNCTION(BlueprintCallable, Category = "Transform")
+	UFUNCTION(BlueprintCallable, Category="Transform")
 		static void ConfigureDefaultSkeletalMeshComponentTransform(USceneComponent* InSkeletalMeshComponent, const UCapsuleComponent* InCapsuleComponent);
 };

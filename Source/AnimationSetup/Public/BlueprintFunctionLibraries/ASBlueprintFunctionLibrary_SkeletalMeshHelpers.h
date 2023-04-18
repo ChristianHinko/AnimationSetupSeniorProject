@@ -29,7 +29,7 @@ public:
 	 * 
 	 * @return A procedurally created Skeletal Mesh that resembles the given Skeleton
 	 */
-	UFUNCTION(BlueprintCallable, Category = "SkeletalMeshGenerating")
+	UFUNCTION(BlueprintCallable, Category="SkeletalMeshGenerating")
 		static USkeletalMesh* CreateSkinlessSkeletalMeshFromSkeleton(USkeleton* InSkeleton, const bool bInPrimitiveInRendererScene = false);
 
 	/**

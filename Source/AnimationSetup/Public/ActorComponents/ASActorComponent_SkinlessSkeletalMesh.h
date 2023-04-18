@@ -31,7 +31,7 @@ public:
 	 * the ComponentProperty to component's member name. E.g., "Mesh" for ACharacter::Mesh. Note that
 	 * this is not "CharacterMesh0" - as that would be the name of the object and not the object pointer member.
 	 */
-	UPROPERTY(EditDefaultsOnly, Category = "SkinlessSkeletalMesh") // NOTE: We are not using the UseComponentPicker meta because it does not make sense to pick a Component out of a World when all we want is a reference to the Component member by name. The UseComponentPicker meta typically makes sense for EditInstanceOnly, in which case there would be an appropriate World to choose from because there is an instance of our owner Actor in that World.
+	UPROPERTY(EditDefaultsOnly, Category="SkinlessSkeletalMesh") // NOTE: We are not using the UseComponentPicker meta because it does not make sense to pick a Component out of a World when all we want is a reference to the Component member by name. The UseComponentPicker meta typically makes sense for EditInstanceOnly, in which case there would be an appropriate World to choose from because there is an instance of our owner Actor in that World.
 		FComponentReference SkeletalMeshComponentReference;
 
 protected:
@@ -45,11 +45,11 @@ protected:
 
 
 	/** The Skeleton to use and make animatable for the SkinlessSkeletalMesh. */
-	UPROPERTY(EditDefaultsOnly, Category = "SkinlessSkeletalMesh")
+	UPROPERTY(EditDefaultsOnly, Category="SkinlessSkeletalMesh")
 		TObjectPtr<USkeleton> Skeleton;
 
 	/** If true, include the mesh as a primitive in the render scene. This is not necessary since we are skinless. */
-	UPROPERTY(EditDefaultsOnly, Category = "SkinlessSkeletalMesh")
+	UPROPERTY(EditDefaultsOnly, Category="SkinlessSkeletalMesh")
 		uint8 bAddToRendererScene : 1;
 
 	/**

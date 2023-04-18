@@ -11,5 +11,13 @@ public class AnimationSetup : ModuleRules
 
 		PublicDependencyModuleNames.AddRange(new string[] { "Core" });
 		PrivateDependencyModuleNames.AddRange(new string[] { "CoreUObject", "Engine" });
+
+		PrivateDependencyModuleNames.AddRange(
+			new string[]
+			{
+				"GameplayTags",
+				"GameCore"
+			}
+		);
 	}
 }

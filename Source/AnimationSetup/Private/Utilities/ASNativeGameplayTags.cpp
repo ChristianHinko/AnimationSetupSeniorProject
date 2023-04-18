@@ -7,10 +7,8 @@
 
 namespace ASNativeGameplayTags
 {
-#if 0
-	// Ability Tags
-	UE_DEFINE_GAMEPLAY_TAG(Ability_Fire,											TEXT("Ability.Fire"))
-	UE_DEFINE_GAMEPLAY_TAG(Ability_Reload,											TEXT("Ability.Reload"))
-	UE_DEFINE_GAMEPLAY_TAG(Ability_ADS,												TEXT("Ability.ADS"))
-#endif
+	// Portrayals
+	UE_DEFINE_GAMEPLAY_TAG(Portrayal_Default, TEXT("Portrayal.Default"))
+	UE_DEFINE_GAMEPLAY_TAG(Portrayal_OwnerViewers, TEXT("Portrayal.OwnerViewers"))
+	UE_DEFINE_GAMEPLAY_TAG(Portrayal_SelfViewer, TEXT("Portrayal.SelfViewer"))
 }
